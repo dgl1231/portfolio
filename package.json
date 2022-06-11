@@ -1,6 +1,25 @@
 {
   "dependencies": {
     "express": "^4.18.1",
+    "express-ejs-layouts": "^2.5.1",
     "save": "^2.5.0"
-  }
+  },
+  "name": "portfolio",
+  "description": "Node.js를 활용한 layout 구조의 웹",
+  "version": "1.0.0",
+  "main": "web.js",
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dgl1231/portfolio.git"
+  },
+  "author": "dgl1231",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/dgl1231/portfolio/issues"
+  },
+  "homepage": "https://github.com/dgl1231/portfolio#readme"
 }
