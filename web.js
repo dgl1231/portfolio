@@ -1,21 +1,51 @@
-// node_modules의 express 패키지를 가져온다.
-var express = require('express')
+const createError = require('http-errors');
+const express = require('express');
+const path = require('path');
+const cookieParser = require('cookie-parser');
+const logger = require('morgan');
+const expressLayout = require('express-ejs-layouts');
 
-//app이라는 변수에 express 함수의 변환 값을 저장한다.
-var app = express()
+const routes = require('./router');
 
-//환경변수에서 port를 가져온다. 환경변수가 없을시 5050포트를 지정한다.
-var port = app.listen(process.env.PORT || 8080);
+const app = express();
+const port = 8080;
 
-//REST API의 한가지 종류인 GET 리퀘스트를 정의하는 부분입니다.
-//app.get이라고 작성했기 때문에 get 요청으로 정의가 되고
-//app.post로 작성할 경우 post 요청으로 정의가 됩니다.
-//REST API의 종류 (get, post, update, delete 등등)을 사용하여 End Point를 작성하실 수 있습니다.
-app.get('/', function (req, res) {
-    res.send("<h1>Express server Start</h1>")
-})
+const viewpath = path.join(__dirname, 'views');
+// view engine setup
+app.set('views', viewpath);
+app.set('view engine', 'ejs');
+app.engine('html', require('ejs').renderFile);
 
-// express 서버를 실행할 때 필요한 포트 정의 및 실행 시 callback 함수를 받습니다
+app.use(expressLayout);
+app.set('layout', 'layout/layout');
+app.set('layout extractScripts', true);
+
+app.use(logger('dev'));
+app.use(cookieParser());
+
+app.use(express.static(path.join(__dirname, 'public')));
+
+
 app.listen(port, function () {
-    console.log('start! express server');
-})
+    app.use('/', routes);
+});
+
+
+// catch 404 and forward to error handler
+app.use(function (req, res, next) {
+    next(createError(404));
+});
+
+// error handler
+app.use(function (err, req, res, next) {
+    // set locals, only providing error in development
+    res.locals.message = err.message;
+    res.locals.error = req.app.get('env') === 'development' ? err : {};
+
+    // render the error page
+    res.status(err.status || 500);
+    res.render('error');
+});
+
+
+module.exports = app;

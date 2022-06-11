@@ -1,14 +1,19 @@
 {
   "dependencies": {
+    "cookie-parser": "^1.4.6",
+    "debug": "^4.3.4",
+    "ejs": "^3.1.8",
     "express": "^4.18.1",
     "express-ejs-layouts": "^2.5.1",
+    "http-errors": "^2.0.0",
+    "morgan": "^1.10.0",
+    "router": "^1.3.7",
     "save": "^2.5.0"
   },
   "name": "portfolio",
   "description": "Node.js를 활용한 layout 구조의 웹",
   "version": "1.0.0",
   "main": "web.js",
-  "devDependencies": {},
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
