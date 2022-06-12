@@ -3,6 +3,6 @@ const router = express.Router();
 const controller = require('./skills.controller');
 
 /* GET home page. */
-router.get('d', controller.skills);
+router.get('/skills', controller.skills);
 
 module.exports = router;

@@ -27,9 +27,10 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 
 app.listen(port, function () {
-    app.use('/', routes);
+    console.log('dd');
 });
 
+app.use('/', routes);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {

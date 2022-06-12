@@ -3,6 +3,6 @@ const router = express.Router();
 const controller = require('./archiving.controller');
 
 /* GET home page. */
-router.get('/', controller.archiving);
+router.get('/archiving', controller.archiving);
 
 module.exports = router;
