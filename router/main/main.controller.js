@@ -1,3 +1,6 @@
 exports.main = (req, res, next) => {
-    res.render('index.ejs', { title: 'main' });
+    res.render('main.ejs', {
+        title: 'main',
+        styleNo: 0
+    });
 }

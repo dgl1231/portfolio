@@ -6,14 +6,24 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>
-        dd
+        <%= title%>
     </title>
 
     <!-- global style -->
 
 
     <!-- css style select -->
-    <link rel="stylesheet" href="css/layout.css">
+    <% if(styleNo==0) {%>
+        <link rel="stylesheet" href="css/page/main.css">
+        <% }else if(styleNo==1){%>
+            <link rel="stylesheet" href="css/page/aboutme.css">
+            <% }else if(styleNo==2){%>
+                <link rel="stylesheet" href="css/page/skills.css">
+                <% }else if(styleNo==3){%>
+                    <link rel="stylesheet" href="css/page/projects.css">
+                    <% }else if(styleNo==4){%>
+                        <link rel="stylesheet" href="css/page/archiving.css">
+                        <% } %>
 
 </head>
 

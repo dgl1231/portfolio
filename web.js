@@ -25,9 +25,8 @@ app.use(cookieParser());
 
 app.use(express.static(path.join(__dirname, 'public')));
 
-
+//port 8080 localhost start
 app.listen(port, function () {
-    console.log('dd');
 });
 
 app.use('/', routes);

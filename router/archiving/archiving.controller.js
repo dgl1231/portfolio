@@ -1,3 +1,6 @@
 exports.archiving = (req, res, next) => {
-    res.render('archiving.ejs', { title: 'archiving' });
+    res.render('archiving.ejs', {
+        title: 'archiving',
+        styleNo: 4
+    });
 }
